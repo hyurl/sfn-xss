@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyurl/sfn.git"
+    "url": "git+https://github.com/hyurl/sfn-xss.git"
   },
   "license": "MIT"
 }
