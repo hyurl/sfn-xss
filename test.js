@@ -1,23 +1,13 @@
-const {
-    escapeTags,
-    escapeScriptHrefs,
-    escapeEventAttributes
-} = require("./");
+var assert = require("assert");
+var xss = require("./");
 
 var html = "<script>document.write('You are being hacked.')</script>";
-var escaped = escapeTags(html);
+assert.equal(xss.escapeTags(html), "&lt;script&gt;document.write('You are being hacked.')&lt;/script&gt;");
 
-console.log(escaped);
-// &lt;script&gt;document.write('You are being hacked.')&lt;/script&gt;
-
-var html2 = `<a href="javascript:document.write('You are being hacked.');">`;
-var escaped2 = escapeScriptHrefs(html2);
-
-console.log(escaped2);
-// <a data-href="jscript:document.write('You are being hacked.');">
+var html2 = "<a href=\"javascript:document.write('You are being hacked.');\">";
+assert.equal(xss.escapeScriptHrefs(html2), "<a data-href=\"javascript:document.write('You are being hacked.');\">");
 
 var html3 = `<button onclick="document.write('You are being hacked.')">`;
-var escaped3 = escapeEventAttributes(html3);
+assert.equal(xss.escapeEventAttributes(html3), "<button data-onclick=\"document.write('You are being hacked.')\">");
 
-console.log(escaped3);
-// <button data-onclick="document.write('You are being hacked.')">
+console.log("All tests passed!");

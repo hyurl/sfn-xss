@@ -1,6 +1,6 @@
 # SFN-XSS
 
-**Safety functions for Node.js XSS protection.**
+**Safety Functions for Node.js XSS protection.**
 
 ## Install
 

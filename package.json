@@ -1,7 +1,7 @@
 {
   "name": "sfn-xss",
-  "version": "0.1.0",
-  "description": "Safety functions for Node.js XSS protection.",
+  "version": "0.1.1",
+  "description": "Safety Functions for Node.js XSS protection.",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
