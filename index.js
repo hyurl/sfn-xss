@@ -13,8 +13,9 @@ function escapeTags(html, tags) {
     tags = tags || "<script><style><iframe><object><embed>";
     tags = isArray(tags) ? tags : tags.match(/[a-zA-Z0-9\-:]+/g);
 
-    for (let tag of tags) {
-        let re1 = new RegExp("<" + tag + "\\s*>", "gi"),
+    for (let i in tags) {
+        let tag = tags[i],
+            re1 = new RegExp("<" + tag + "\\s*>", "gi"),
             re2 = new RegExp("<\\/" + tag + "\\s*>", "gi"),
             re3 = new RegExp("<" + tag + "(.*)>", "gi");
 
